@@ -1,36 +1,81 @@
-/*
-	This file is part of the OdinMS Maple Story Server
-    Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
-                       Matthias Butz <matze@odinms.de>
-                       Jan Christian Meyer <vimes@odinms.de>
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License version 3
-    as published by the Free Software Foundation. You may not use, modify
-    or distribute this program under any other version of the
-    GNU Affero General Public License.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-/* Gachapon
-	
-	Victoria Road : Henesys Market (100000100)
-
-	
-*/
-
-
-function start() {
-	cm.sendOk ("Here's Gachapon.");
-}
-
-function action() {
-	cm.dispose()
+/**
+
+ * @NPC: 9100105 - Level Gacha
+
+ * @Location: Henesys
+
+ * @Function: Gacha
+
+ * @author: System
+
+ * @credits : iDolly, Oliver
+
+**/
+
+
+
+var status = 0;
+var chance1;
+var chance2;
+var chance3;
+var chance4;
+var tao = 4032016;
+var gachatix = 5220000;
+function start() {
+    status = -1;
+    action(1, 0, 0);
+}
+
+function scam(){
+	cm.sendOk("You have been Scammed");
+}
+
+function levelUp(){
+	chance1 = Math.random() * 25;
+	chance2 = Math.random() * 25;
+	chance3 = chance1 + chance2 + 1;
+	for (i = 0; i < chance3; i++)
+		if (cm.getPlayer().getLevel() < 255) {
+			cm.getPlayer().levelUp();
+		}
+	cm.sendOk("You have Gained levels");
+}
+
+function giveTao(){
+	chance1 = Math.random() * 3;
+	chance4 = Math.floor(chance1 + 1);
+	cm.gainItem(tao, chance4);
+	cm.sendOk("You have Gained Tao");
+}
+
+function action(mode, type, selection) {
+    if (mode == 1)
+        status++;
+    else {
+        cm.dispose();
+        return;
+    }
+	if (status == 0) {
+		cm.sendNext("Hey #h #! I'm the level up Gacha pon on NinjaMS . Wanna Try your luck?\r\n #rYou need to have a Gachapon ticket. You can get them from idolly in the other end of henesys#k");
+    } else if (status == 1) {
+		if(!cm.haveItem(gachatix, 1)) {
+			cm.sendOk("Bring me a Gacha ticket I'll let you check your Luck");
+			cm.dispose();
+		} else {
+			cm.gainItem(gachatix, -1);
+			chance1 = Math.random() * 900;
+			if (chance1 < 500){			
+				levelUp();
+			} else if (chance1 < 800){
+				scam();
+			} else {
+				giveTao();
+			}		
+			cm.dispose();
+		}
+	} else {
+		cm.voteMSG();
+		cm.dispose();
+	}
+
 }

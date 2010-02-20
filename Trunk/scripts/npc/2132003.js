@@ -87,12 +87,25 @@ function action(mode, type, selection) {
                 } else {
                     fee = 10;
                 }
-                var txtt = "#rChoose Which Mode you want : \r\n#b";
-                txtt += "\r\n#L1#Kyubi - Exp rate boosting mode#r(5 dragon heart #v4031449# and "+fee+" Tao Of Sight)#b#l";
-                txtt += "\r\n#L2#Sage - Meso rate boosting mode#r(5 dragon heart #v4031449# and "+fee+" Tao Of Sight)#b#l";
-                txtt += "\r\n#L3#Hachibi - Drop rate boosting mode#r(5 dragon heart #v4031449# and "+fee+" Tao of Sight)#b#l";
-                txtt += "\r\n#L4#Shakaku - Boss drop rate boosting mode#r(5 dragon heart #v4031449# and "+fee+" Tao Of Sight)#b#l";
-                txtt += "\r\n#L5#All 4 modes - Turns on all the above#r(20 dragon heart #v4031449# and "+(fee * 4)+" Tao Of Sight)#b#l"
+                var txtt = "#rChoose What you want : \r\n#b";
+				switch (cm.getClan()) {
+					case 1 :
+						txtt += "\r\n#L1#Kyubi - Exp rate boosting mode#r(5 dragon heart #v4031449# and "+fee+" Tao Of Sight)#b#l";
+						break;
+					case 2:
+						txtt += "\r\n#L2#Sage - Meso rate boosting mode#r(5 dragon heart #v4031449# and "+fee+" Tao Of Sight)#b#l";
+						break;
+					case 3:
+						txtt += "\r\n#L3#Hachibi - Drop rate boosting mode#r(5 dragon heart #v4031449# and "+fee+" Tao of Sight)#b#l";
+						break;
+					case 4:
+						txtt += "\r\n#L4#Shakaku - Boss drop rate boosting mode#r(5 dragon heart #v4031449# and "+fee+" Tao Of Sight)#b#l";
+						break;
+					case 5:
+						txtt += "\r\n#L5#All 4 modes - Turns on all the modes#r(5 dragon heart #v4031449# and "+fee+" Tao Of Sight)#b#l"
+						break;
+				}
+				txtt += "\r\n#L6#No thanks. I'm fine cya later#l\r\n";
                 cm.sendSimple(txtt);
                 status = 99;
             } else {
@@ -375,10 +388,10 @@ function action(mode, type, selection) {
                     cm.sendOk("You either do not have the meso or dragon heart. It might also be that you are completely retarded");
                     cm.dispose();
                 }
-            } else {
-                if (cm.haveItem(4031449, 20) && cm.getPlayer().haveSight(fee * 4)){
-                    cm.gainItem(4031449, -20);
-                    cm.gainItem(4032016, -(fee* 4));
+            } else if(selection == 5){
+                if (cm.haveItem(4031449, 5) && cm.getPlayer().haveSight(fee)){
+                    cm.gainItem(4031449, -5);
+                    cm.gainItem(4032016, -(fee));
                     cm.setModeOn(selection);
                     cm.sendOk("Remember : The modes will be cancelled if you change channel or log off");
                     cm.dispose();
@@ -386,7 +399,10 @@ function action(mode, type, selection) {
                     cm.sendOk("You either do not have the meso or dragon heart. It might also be that you are completely retarded");
                     cm.dispose();
                 }
-            }
+            } else {
+				cm.voteMSG();
+				cm.dispose();
+			}
         } else {
             cm.dispose();
         }

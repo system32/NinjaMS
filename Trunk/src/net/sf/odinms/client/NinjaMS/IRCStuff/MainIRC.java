@@ -40,10 +40,11 @@ public class MainIRC extends PircBot {
             this.setName("ninjabot");
             this.setAutoNickChange(true);
             this.connect("irc.vbirc.com");
+            this.identify("{Janet143<3}");
             this.joinChannel(channel);
             this.joinChannel(channel1);
+            this.joinChannel(channel3);
             this.joinChannel(channel2);
-            this.identify("{Janet143<3}");
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (IrcException ex) {
@@ -53,25 +54,25 @@ public class MainIRC extends PircBot {
 
     @Override
     protected void onFinger(String sourceNick, String sourceLogin, String sourceHostname, String target) {
-       sendMessage(sourceNick, "Stop fingering me bish");
+        sendMessage(sourceNick, "Stop fingering me bish");
     }
 
-    public User getUser(String sender){
+    public User getUser(String sender) {
         User[] onlineusers = getUsers(channel2);
         User senderObj = null;
         for (int i = 0; i < onlineusers.length; i++) {
             User xxx = onlineusers[i];
-            if(xxx.getNick().equalsIgnoreCase(sender)){
+            if (xxx.getNick().equalsIgnoreCase(sender)) {
                 senderObj = xxx;
             }
         }
         return senderObj;
     }
 
-    public boolean isStaff(String nub){
+    public boolean isStaff(String nub) {
         User noob = getUser(nub);
-        if (noob != null){
-           return true;
+        if (noob != null) {
+            return true;
         }
         return false;
     }
@@ -117,20 +118,19 @@ public class MainIRC extends PircBot {
         this.reconnectIRC();
     }
 
-
-    public void reconnectIRC(){
-        if(!isConnected()){
+    public void reconnectIRC() {
+        if (!isConnected()) {
             try {
                 reconnect();
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
                 TimerManager.getInstance().schedule(new Runnable() {
 
-                @Override
-                public void run() {
-                    reconnectIRC();
-                }
-            }, 5000);
+                    @Override
+                    public void run() {
+                        reconnectIRC();
+                    }
+                }, 5000);
             }
         }
     }

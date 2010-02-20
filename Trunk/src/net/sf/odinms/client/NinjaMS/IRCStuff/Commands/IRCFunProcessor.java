@@ -4,10 +4,6 @@
  */
 package net.sf.odinms.client.NinjaMS.IRCStuff.Commands;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 import net.sf.odinms.client.NinjaMS.IRCStuff.MainIRC;
 import net.sf.odinms.tools.StringUtil;
 
@@ -20,15 +16,12 @@ public class IRCFunProcessor {
     public static void process(String message, String sender, String channel) {
         message = message.toLowerCase();
         String[] splitted = message.split(" ");
-        Map<Integer, List<String>> lol = new LinkedHashMap<Integer, List<String>>();
-
-        String[] lols = {"hi", "hello"};
         if (splitted[0].startsWith("hi") || splitted[0].startsWith("hello")) {
             if (splitted[1].equals("ninjabot")) {
                 sendGreeting(sender, channel);
             }
         } else if (message.startsWith("ninjabot:")) {
-            String process = StringUtil.joinStringFrom(splitted, 2);
+            String process = StringUtil.joinStringFrom(splitted, 1);
             if (processGreeting(sender, channel, process)) {
                 return;
             } else if (processGay(sender, channel, process)) {
@@ -38,7 +31,7 @@ public class IRCFunProcessor {
                 ircMsg(channel, sender + ": I do not have that information yet. ");
             } else if (processLove(sender, channel, process)) {
                 return;
-            } else if (processDoYouLoveMe(sender, channel, process)){
+            } else if (processDoYouLoveMe(sender, channel, process)) {
                 return;
             } else if (processHowdy(sender, channel, process)) {
                 return;
@@ -49,7 +42,7 @@ public class IRCFunProcessor {
     }
 
     private static void sendUncoded(String sender, String channel) {
-        ircMsg(channel, sender + ": I do not know how to respond to that yet. I'm rying my best to learn more. Gimme a break!");
+        ircMsg(channel, sender + ": I do not know how to respond to that yet. I'm trying my best to learn more. Gimme a break!");
     }
 
     private static boolean processGreeting(String sender, String channel, String process) {
@@ -74,6 +67,17 @@ public class IRCFunProcessor {
             " Hey tharbish ", " Omg its ", " Long time no see ",
             " Nice to see you again ", " Yay! we meet again ",
             " YAY! nice to see you again bro "};
+        int i = (int) Math.floor(Math.random() * msg.length);
+        ircMsg(channel, sender + ": " + msg[i]);
+        i = (int) Math.floor(Math.random() * 100);
+        if (i < 50) {
+        }
+    }
+
+    private static void sendHowdy(String sender, String channel) {
+        String[] msg = {" How are you?", " Howdy?", " Doing good?",
+            " Are you doing good?", " How do you do?",
+            " How r u?", " How u?", " How you doin?", " How you doing?", " How are you doing?"};
         int i = (int) Math.floor(Math.random() * msg.length);
         ircMsg(channel, sender + ": " + msg[i]);
     }
@@ -156,8 +160,8 @@ public class IRCFunProcessor {
 
     private static boolean processDoYouLoveMe(String sender, String channel, String process) {
         String[] preset = {"do you love me?", "do you lurv me?", "are you my gf?",
-        "are you my bf?", "u r my gf?", "u r my bf?", "do you (l) me?",
-        "do you <3 me?", "do you :3 me?"};
+            "are you my bf?", "u r my gf?", "u r my bf?", "do you (l) me?",
+            "do you <3 me?", "do you :3 me?"};
         for (int i = 0; i < preset.length; i++) {
             if (process.equals(preset[i])) {
                 sendILoveYou(sender, channel);

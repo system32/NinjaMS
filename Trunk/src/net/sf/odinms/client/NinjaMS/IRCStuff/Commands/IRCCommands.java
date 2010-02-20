@@ -87,12 +87,14 @@ class IRCCommands {
         } else if (command.equalsIgnoreCase("whodrops")) {
             int itemid = Integer.parseInt(splitted[1]);
             List<String> ret = SearchProcessor.whoDrops(itemid);
-            for (String retstring : ret) {
-                ircMsg(channel, retstring);
+            if (ret != null && ret.size() > 0) {
+                for (String id : ret) {
+                    ircMsg(sender, id);
+                }
             }
         } else if (command.equalsIgnoreCase("roulette")) {
             double lol = Math.random() * 100;
-            if(lol > 50){
+            if (lol > 50) {
                 ircMsg(channel, " You seem to be lucky today. :p");
             } else {
                 kick(channel, sender, "You are such a unlucky fag");
@@ -108,7 +110,7 @@ class IRCCommands {
         MainIRC.getInstance().sendMessage(target, message);
     }
 
-    private static void kick(String channel, String sender, String reason){
+    private static void kick(String channel, String sender, String reason) {
         MainIRC.getInstance().kick(channel, sender, reason);
     }
 }

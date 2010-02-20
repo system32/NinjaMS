@@ -37,7 +37,7 @@ function scheduleNew() {
     cal.set(java.util.Calendar.SECOND, 0);
     var nextTime = cal.getTimeInMillis();
     while (nextTime <= java.lang.System.currentTimeMillis()) {
-        nextTime += 1000 * 60 * 60 * 2; // 2 hours
+        nextTime += 1000 * 60 * 60; // every minute
     }
     setupTask = em.scheduleAtTimestamp("setup", nextTime);
 }
@@ -269,7 +269,7 @@ function allMonstersDead(eim) {
             // GM SCrolls
             2044503, 2044703, 2044603, 2043303, 2044303, 2044403, 2043803, 2043703, 2043003, 2044003, 2043203, 2044203, 2043103, 2044103, 2040506, 2040709, 2040710, 2040711, 2040303, 2040807, 2040806);
         var scrollRand = Math.floor(Math.random() * scrolls30.length);
-        price = new net.sf.odinms.client.Item(scrolls30[scrollRand], 0, 1);
+        price = new net.sf.odinms.client.Inventory.Item(scrolls30[scrollRand], 0, 1);
     } else if (priceRand > 45 && priceRand <= 70) {
         // powerups
         var powerUps = new Array(new Array(2022273, 3),

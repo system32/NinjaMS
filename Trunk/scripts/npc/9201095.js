@@ -3,6 +3,11 @@ var status = 0;
 
 
 function start() {
+	if (cm.getPlayer().getGMSMode() != 1){
+		cm.sendOk("You need to be in GMS mode 1 to be able to do Jump Quest");
+		cm.dispose();
+		return;
+	}
 	status = -1;
 	action(1, 0, 0);
 }

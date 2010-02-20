@@ -34,79 +34,20 @@ function action(mode, type, selection) {
             test += " So I want to sell them off too. I can also teach your naruto specials Kage Bunshin or Rasengan jutsu.";
             test += " Worry Not. I r a good teacher. I was considered as the only match to the Pervert Sannin Jiraya.";
             test += " Well that was a long time ago when I was not this fat and old \r\n #rChoose What you want: #k ";
-            test += " \r\n\r\n#b#L1# Chairs#l\r\n#L2# Mounts#l\r\n#L3# Morphs#l\r\n#L4# Learn the Awesome Kage Bunshin#l ";
-            test += "\r\n#L5# Learn the Legendary Rasengan#l#k";
+            test += " \r\n\r\n#L1# Learn the Awesome Kage Bunshin#l ";
+            test += "\r\n#L2# Learn the Legendary Rasengan#l#k";
             cm.sendSimple(test);			
         } else if (status == 1) {
-            if (selection == 1) {
-                cm.sendNextPrev("Since I have a lot chairs and need money to buy food, I decided to sell some of it ninjas. If you bring me 500 cactus stem and 10 tao of sight I'll let you have a chair <3.You can find cactus stems in Ariant");
-                status = 9;
-            } else if (selection == 2){
-                cm.sendNextPrev("Since I have a lot mounts and need money to buy food, I decided to sell some of it ninjas. If you bring me 500 Ligator Skin and 20 Tao of Sight I'll let you have a mount <3.You can find Ligator Skin in Kerning"); //4000032
-                status = 19;
-            } else if (selection == 3){
-                cm.sendNextPrev("Since I have a lot morphs and need money to buy food, I decided to sell some of it ninjas. If you bring me 100 Jr.Sentinel Shell Piece I'll let you have 10 morphs of 1 type <3.You can find Jr.Sentinel Shell Piece in OrbisTower"); // 4000083
-                status = 29;
-            } else if (selection == 4){
+            if (selection == 1){
                 cm.sendNextPrev("Kage Bunshin is a secret Jutsu which Naruto learned when he was a kid. It takes a lot of effort to learn it. I cannot teach it to every other retard. The Genins and above get to learn it from the Hokage himself. But for the Rookie ninjas, I'm the only way. I'll only teach you if you prove yourself worth of having such an awesome power. Are you ready to take my tests and prove yourself? ");
                 status = 39;
-            } else if (selection == 5){
+            } else if (selection == 2){
                 cm.sendNextPrev("Rasengan is a secret Jutsu which Naruto learned from jiraya. It takes a lot of effort and concentration and patience to learn it. I cannot teach it to every other retard. I'll only teach you if you prove yourself worth of having such an awesome power. Are you ready to take my tests and prove yourself?");
                 status = 49;
             } else {
                 cm.voteMSG();
                 cm.dispose();
             }
-        } else if (status == 10){
-            if(cm.haveItem(4000329, 500) && cm.getPlayer().haveSight(10)){
-                var ok = "Choose Which Chair you want. Every one needs to sit and rest at times #b";
-                for (i = 0; i < chairs.length; i++){
-                    ok += "\r\n#L" + i + "##v" + chairs[i] + "# ~ #t" + chairs[i] + "##l\r\n";
-                }
-                cm.sendSimple(ok);
-            } else {
-                cm.sendOk("You do not have the herbs and Spices");
-                cm.dispose();
-            }
-        } else if (status == 11){
-            cm.gainItem(chairs[selection], 1);
-            cm.gainItem(4032016, -10);
-            cm.gainItem(4000329, -500); // Cactus Stem
-            cm.sendOk("Have fun with your new chair :)");
-            cm.dispose();
-        }  else if (status == 20){
-            if(cm.haveItem(4000032, 500) && cm.getPlayer().haveSight(20)){ //ligator skin
-                var ok = "Choose Which mount you want. Every one needs to have fun at times #b";
-                for (i = 0; i < mounts.length; i++){
-                    ok += "\r\n#L" + i + "##v" + mounts[i] + "# ~ #t" + mounts[i] + "##l\r\n";
-                }
-                cm.sendSimple(ok);
-            } else {
-                cm.sendOk("You do not have the herbs and Spices");
-                cm.dispose();
-            }
-        } else if (status == 21){
-            cm.gainItem(mounts[selection], 1);
-            cm.gainItem(4032016, -20)
-            cm.gainItem(4000032, -500); //ligator Skin
-            cm.sendOk("Have fun with your new mount :)");
-            cm.dispose();
-        } else if (status == 30){
-            if(cm.haveItem(4000083, 100)){ //Jr.Sentinel Shell Piece
-                var ok = "Choose Which mount you want. Every one needs to have fun at times #b";
-                for (i = 0; i < morphs.length; i++){
-                    ok += "\r\n#L" + i + "##v" + morphs[i] + "# ~ #t" + morphs[i] + "##l\r\n";
-                }
-                cm.sendSimple(ok);
-            } else {
-                cm.sendOk("You do not have the herbs and Spices");
-                cm.dispose();
-            }
-        } else if (status == 31){
-            cm.gainItem(morphs[selection], 10);
-            cm.gainItem(4000083, -100); //Jr.Sentinel Shell Pieceu
-            cm.dispose();
-			
         } else if (status == 40){
             if(cm.haveItem(5010044, 1) && cm.haveItem(4000008, 5000) && (cm.getPlayer().haveSight(50)) && (cm.getPlayer().getAllowedClones() < 10)) {
                 cm.gainItem(5010044, -1);

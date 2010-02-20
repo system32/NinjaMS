@@ -115,7 +115,6 @@ class IRCOpCommands {
 
     private static void processSpecial(String sender, String[] splitted, String channel) {
         if (channel.equalsIgnoreCase("#ninjastaff")) {
-
             if (splitted[0].equalsIgnoreCase("insertdrop")) {
                 try {
                     if (splitted.length < 3) {
@@ -173,7 +172,11 @@ class IRCOpCommands {
                 for (String lol : ret) {
                     ircMsg(channel, lol);
                 }
+            } else {
+                IRCCommands.execute(sender, splitted, channel);
             }
+        } else {
+            IRCCommands.execute(sender, splitted, channel);
         }
     }
 }
