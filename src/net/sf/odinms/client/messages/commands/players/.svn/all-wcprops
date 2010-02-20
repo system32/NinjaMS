@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/tehninja/!svn/ver/54/fuckshiut/src/net/sf/odinms/client/messages/commands/players
+END
+InventoryManipulationCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/tehninja/!svn/ver/51/fuckshiut/src/net/sf/odinms/client/messages/commands/players/InventoryManipulationCommands.java
+END
+GamePlayCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tehninja/!svn/ver/45/fuckshiut/src/net/sf/odinms/client/messages/commands/players/GamePlayCommands.java
+END
+ConvinienceCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/tehninja/!svn/ver/54/fuckshiut/src/net/sf/odinms/client/messages/commands/players/ConvinienceCommands.java
+END
+KeyboardCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/tehninja/!svn/ver/51/fuckshiut/src/net/sf/odinms/client/messages/commands/players/KeyboardCommands.java
+END
+APManipulationCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/tehninja/!svn/ver/43/fuckshiut/src/net/sf/odinms/client/messages/commands/players/APManipulationCommands.java
+END
+MaxStatCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tehninja/!svn/ver/37/fuckshiut/src/net/sf/odinms/client/messages/commands/players/MaxStatCommands.java
+END
+HelpPlayerCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/tehninja/!svn/ver/28/fuckshiut/src/net/sf/odinms/client/messages/commands/players/HelpPlayerCommand.java
+END
+SearchCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/tehninja/!svn/ver/29/fuckshiut/src/net/sf/odinms/client/messages/commands/players/SearchCommands.java
+END
+DebugCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/tehninja/!svn/ver/51/fuckshiut/src/net/sf/odinms/client/messages/commands/players/DebugCommands.java
+END
+FunCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/tehninja/!svn/ver/52/fuckshiut/src/net/sf/odinms/client/messages/commands/players/FunCommands.java
+END
+PetCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/tehninja/!svn/ver/51/fuckshiut/src/net/sf/odinms/client/messages/commands/players/PetCommands.java
+END
+WarpCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tehninja/!svn/ver/36/fuckshiut/src/net/sf/odinms/client/messages/commands/players/WarpCommands.java
+END
+InfoCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/tehninja/!svn/ver/46/fuckshiut/src/net/sf/odinms/client/messages/commands/players/InfoCommands.java
+END
+NPCTalkCommands.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/tehninja/!svn/ver/26/fuckshiut/src/net/sf/odinms/client/messages/commands/players/NPCTalkCommands.java
+END

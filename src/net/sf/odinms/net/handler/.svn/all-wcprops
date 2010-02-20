@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/tehninja/!svn/ver/17/fuckshiut/src/net/sf/odinms/net/handler
+END
+KeepAliveHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/tehninja/!svn/ver/17/fuckshiut/src/net/sf/odinms/net/handler/KeepAliveHandler.java
+END
+LoginRequiringNoOpHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/tehninja/!svn/ver/17/fuckshiut/src/net/sf/odinms/net/handler/LoginRequiringNoOpHandler.java
+END
+NoOpHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/tehninja/!svn/ver/17/fuckshiut/src/net/sf/odinms/net/handler/NoOpHandler.java
+END
