@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import net.sf.odinms.client.NinjaMS.IRCStuff.Commands.IRCCommandProcessor;
+import net.sf.odinms.client.NinjaMS.IRCStuff.Commands.IRCFunProcessor;
 import net.sf.odinms.client.NinjaMS.Processors.SmegaProcessor;
 import net.sf.odinms.server.TimerManager;
 import org.jibble.pircbot.IrcException;
@@ -27,8 +28,8 @@ public class MainIRC extends PircBot {
     private String channel = "#ninjahelp";
     private String channel1 = "#ninjas";
     private String channel2 = "#ninjastaff";
+    private String channel3 = "#mudkipz";
     private static MainIRC instance = new MainIRC();
-    private Map<String, Long> lastlogs = new LinkedHashMap<String, Long>();
 
     public static MainIRC getInstance() {
         return instance;
@@ -53,6 +54,21 @@ public class MainIRC extends PircBot {
     @Override
     protected void onAction(String sender, String login, String hostname, String target, String action) {
         super.onAction(sender, login, hostname, target, action);
+    }
+
+
+
+    @Override
+    protected void onFinger(String sourceNick, String sourceLogin, String sourceHostname, String target) {
+       sendMessage(sourceNick, "Stop fingering me bish");
+    }
+
+
+
+
+    @Override
+    protected void onDccChatRequest(String sourceNick, String sourceLogin, String sourceHostname, long address, int port) {
+        sendMessage(sourceNick, "No DCC for me :( ");
     }
 
 
@@ -90,17 +106,18 @@ public class MainIRC extends PircBot {
     @Override
     protected void onMessage(String channel, String sender, String login, String hostname, String message) {
         if (!sender.equalsIgnoreCase(this.getNick()) && !sender.contains("[G]")) {
-            if (IRCCommandProcessor.processCommand(message, sender, getPower(sender))) {
+            if (IRCCommandProcessor.processCommand(message, sender, getPower(sender), channel)) {
                 return;
-            } else if (message.contains("#") && getPower(sender) >= 1) {
-                SmegaProcessor.broadcastIRCSmega(sender, message);
             }
+            IRCFunProcessor.process(message, sender, channel);
         }
+
     }
 
     public void sendIrcMessage(String Message) {
         this.sendMessage(channel, Message);
     }
+
     public void sendGlobalMessage(String Message) {
         this.sendMessage(channel, Message);
         this.sendMessage(channel1, Message);

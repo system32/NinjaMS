@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 import net.sf.odinms.client.Enums.Status;
 import net.sf.odinms.client.MapleCharacter;
 import net.sf.odinms.client.MapleClient;
@@ -25,67 +27,67 @@ import net.sf.odinms.server.constants.Rates;
  */
 public class CharInfoProcessor {
 
-    public static String getNinjaGlare(MapleCharacter other) {
+    public static List<String> getNinjaGlare(MapleCharacter other) {
+        List<String> sb = new LinkedList<String>();
         if (other != null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("--------------- Player Name : " + other.getName()
+            sb.add("--------------- Player Name : " + other.getName()
                     + " (CharacterId :" + other.getId() + ")"
                     + " Created on : " + other.getCreateDate());
             if (!other.isJounin()) {
-                sb.append("Rebirth Ranking: "
+                sb.add("Rebirth Ranking: "
                         + "Overall Rank : #" + other.getRank()
                         + GameConstants.getCardinal(other.getRank())
                         + " Rebirths : " + other.getReborns());
-                sb.append("Wealth Ranking: #"
+                sb.add("Wealth Ranking: #"
                         + "Overall Rank : #" + other.getTaorank()
                         + GameConstants.getCardinal(other.getTaorank())
                         + " Tao Amount : " + other.getTaoOfSight());
             }
-            sb.append("MapleStory Job: "
+            sb.add("MapleStory Job: "
                     + GameConstants.getJobName(other.getJob().getId())
                     + " ... Clan: " + other.getClan().getName());
             if (other.getPreviousNames() != null) {
                 if (other.getPreviousNames().length() < 3) {
-                    sb.append(other.getName() + " has also been known as..." + other.getPreviousNames());
+                    sb.add(other.getName() + " has also been known as..." + other.getPreviousNames());
                 }
             }
-            sb.append(" Str : " + other.getStr()
+            sb.add(" Str : " + other.getStr()
                     + " Dex : " + other.getDex()
                     + " Int : " + other.getInt()
                     + " Luk : " + other.getLuk()
                     + " Remaining AP : "
                     + other.getRemainingAp() + " StorageAp : " + other.getStorageAp());
-            sb.append(" TStr : " + other.getStr()
+            sb.add(" TStr : " + other.getStr()
                     + " TDex : " + other.getDex()
                     + " TInt : " + other.getInt()
                     + " TLuk : " + other.getLuk()
                     + " WA : " + other.getTotalWatk());
-            sb.append(" MobKilled : " + other.getMobKilled()
+            sb.add(" MobKilled : " + other.getMobKilled()
                     + " BossKilled : " + other.getBossKilled()
                     + " level : " + other.getLevel()
                     + " Mesos : " + other.getMeso()
                     + " ShurikenItems : " + other.getMaxStatItems());
-            sb.append(" PvP Kills : " + other.getPvpKills()
+            sb.add(" PvP Kills : " + other.getPvpKills()
                     + " PvP Deaths : " + other.getPvpDeaths()
                     + " NinjaTensu : " + other.getNinjaTensu());
-            sb.append("Rasengan Quest Level : " + other.getRasengan()
+            sb.add("Rasengan Quest Level : " + other.getRasengan()
                     + "Exp/meso/drop/bossdrop boost :" + other.getExpBoost()
                     + " / " + other.getMesoBoost()
                     + " / " + other.getDropBoost()
                     + " / " + other.getBossDropBoost()
                     + " Total Exp/meso/drop/bossdrop rates : "
-                    + + Rates.getExpRate(other)
+                    + +Rates.getExpRate(other)
                     + " / " + Rates.getMesoRate(other)
                     + " / " + Rates.getDropRate(other)
                     + " / " + Rates.getBossDropRate(other));
-            sb.append(" This Player is : " + other.getGMStatus().getTitle()
+            sb.add(" This Player is : " + other.getGMStatus().getTitle()
                     + " Player's Legend : " + other.getLegend() + " Player's GMS mode : " + other.getGMSMode());
             if (other.getDAmount() > 0) {
-                sb.append("Donated Amount : " + other.getDAmount() + " Dpoints : " + other.getDPoints());
+                sb.add("Donated Amount : " + other.getDAmount() + " Dpoints : " + other.getDPoints());
             }
-            return sb.toString();
+
         }
-        return "ERROR";
+        return sb;
     }
 
     public static void getNinjaTop10(MessageCallback mc, String name) {
@@ -230,7 +232,7 @@ public class CharInfoProcessor {
                     + " / " + other.getDropBoost()
                     + " / " + other.getBossDropBoost()
                     + " Total Exp/meso/drop/bossdrop rates : "
-                    + + Rates.getExpRate(other)
+                    + +Rates.getExpRate(other)
                     + " / " + Rates.getMesoRate(other)
                     + " / " + Rates.getDropRate(other)
                     + " / " + Rates.getBossDropRate(other));
