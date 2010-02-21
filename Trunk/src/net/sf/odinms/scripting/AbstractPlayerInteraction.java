@@ -304,8 +304,18 @@ public class AbstractPlayerInteraction {
         }
     }
 
+    public void removeFromPty(int id, List<MaplePartyCharacter> party) {
+       for (MaplePartyCharacter chr : party) {
+            MapleCharacter other = ChannelServer.getInstance(c.getChannel()).getPlayerStorage().getCharacterByName(chr.getName());
+            if(other.haveItem(id, 1)){
+                int lol = other.getItemQuantity(id, false);
+                other.gainItem(id, -lol);
+            }
+        }
+    }
     //remove all items of type from character
     //combination of haveItem and gainItem
+
     public void removeAll(int id) {
         removeAll(id, c);
     }

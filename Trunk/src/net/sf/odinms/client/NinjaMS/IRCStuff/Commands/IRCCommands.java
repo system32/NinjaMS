@@ -25,7 +25,7 @@ class IRCCommands {
         if (command.equalsIgnoreCase("commands")) {
             ircMsg(sender, "You should bang a wall and get Raped by AJ");
         } else if (command.equalsIgnoreCase("connected")) {
-            ircMsg(ConnectedProcessor.getConnected());
+            ircMsg(channel, ConnectedProcessor.getConnected());
         } else if (command.equalsIgnoreCase("onlineall")) {
             int i = 0;
             while (i < ChannelServer.getAllInstances().size()) {

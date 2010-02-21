@@ -48,7 +48,7 @@ function action(mode, type, selection){
         if (status == 0) {
             cm.sendNext("See you next time.");
         } else {
-            cm.warp(103000000);
+            cm.warp(100000000);
             cm.removeAll(4001007);
             cm.removeAll(4001008);
             cm.dispose();
@@ -62,9 +62,12 @@ function action(mode, type, selection){
             cm.sendYesNo(outText);
         } else if (mode == 1) {
             var eim = cm.getPlayer().getEventInstance(); // Remove them from the PQ!
-            if (eim == null)
-                cm.warp(100000000); // Warp player
-            else if (cm.isLeader()) {
+            if (eim == null) {               
+				cm.removeAll(4001007);
+				cm.removeAll(4001008);
+				eim.unregisterPlayer(cm.getPlayer());
+				cm.warp(100000000); // Warp player				
+            } else if (cm.isLeader()) {
                 cm.getEventManager("KerningPQ").setProperty("KPQOpen" , "true");
                 eim.disbandParty();
             }

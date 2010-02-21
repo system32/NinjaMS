@@ -322,6 +322,8 @@ function rectanglestages (cm) {
                 var target = eim.getMapInstance(103000800 + curMap);
                 var targetPortal = target.getPortal("st00");
                 cm.getPlayer().changeMap(target, targetPortal);
+				cm.removeAll(4001007);
+				cm.removeAll(4001008);
             }
             cm.dispose();
         }
@@ -329,8 +331,12 @@ function rectanglestages (cm) {
         var complete = eim.getProperty(curMap.toString() + "stageclear");
         if (complete != null) {
             cm.sendNext("Please hurry on to the next stage, the portal opened!");
+			cm.removeAll(4001007);
+            cm.removeAll(4001008);
         } else {
             cm.sendNext("Please have the party leader talk to me.");
+			cm.removeAll(4001007);
+            cm.removeAll(4001008);
         }
         cm.dispose();
     }

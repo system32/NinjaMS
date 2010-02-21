@@ -88,7 +88,10 @@ public class MapleItemInformationProvider {
     protected Map<Integer, Boolean> consumeOnPickupCache = new HashMap<Integer, Boolean>();
     protected Map<Integer, Boolean> karmaCache = new HashMap<Integer, Boolean>();
     protected Map<Integer, Boolean> onEquipUntradableCache = new HashMap<Integer, Boolean>();
+    protected Map<Integer, Boolean> cashEquipCache = new HashMap < Integer, Boolean
 
+
+           >();
     /** Creates a new instance of MapleItemInformationProvider */
     protected MapleItemInformationProvider() {
         itemData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("net.sf.odinms.wzpath") + "/Item.wz"));
@@ -1002,7 +1005,7 @@ public class MapleItemInformationProvider {
         }
     }
 
-        public IItem getEquipById(int equipId, int ringId) {
+    public IItem getEquipById(int equipId, int ringId) {
         Equip nEquip;
         nEquip = new Equip(equipId, (byte) 0, ringId);
         nEquip.setQuantity((short) 1);
@@ -1064,5 +1067,15 @@ public class MapleItemInformationProvider {
         boolean untradableOnEquip = MapleDataTool.getIntConvert("info/equipTradeBlock", data, 0) >= 1;
         onEquipUntradableCache.put(itemId, untradableOnEquip);
         return untradableOnEquip;
+    }
+
+    public boolean isCashEquip(int itemId) {
+        if (cashEquipCache.containsKey(itemId)) {
+            return cashEquipCache.get(itemId);
+        }
+        MapleData data = getItemData(itemId);
+        boolean cashEquip = MapleDataTool.getIntConvert("info/cash", data, 0) >= 1;
+        cashEquipCache.put(itemId, cashEquip);
+        return cashEquip;
     }
 }

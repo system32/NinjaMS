@@ -51,6 +51,7 @@ import net.sf.odinms.server.MapleItemInformationProvider;
 import net.sf.odinms.server.MapleShopFactory;
 import net.sf.odinms.tools.MaplePacketCreator;
 import net.sf.odinms.client.Enums.MapleStat;
+import net.sf.odinms.client.NinjaMS.SuperShuriken;
 import net.sf.odinms.database.DatabaseConnection;
 import net.sf.odinms.net.channel.ChannelServer;
 import net.sf.odinms.net.world.guild.MapleAlliance;
@@ -763,5 +764,26 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
             z++;
         }
         return array;
+    }
+
+
+    public int getItemType(int itemid){
+        return SuperShuriken.getItemType(itemid);
+    }
+
+    public String getReqItems(int itemid){
+        return SuperShuriken.getReQItems(getPlayer(), itemid);
+    }
+
+    public boolean checkEtcItems(int itemid){
+        return SuperShuriken.checkEtcItems(getPlayer(), itemid);
+    }
+
+    public int checkRequirements(int itemid){
+        return SuperShuriken.checkRequirements(getPlayer(), itemid);
+    }
+
+    public void removeItems(int itemid){
+        SuperShuriken.removeItems(getPlayer(), itemid);
     }
 }

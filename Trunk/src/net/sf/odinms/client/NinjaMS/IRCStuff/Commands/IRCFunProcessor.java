@@ -64,7 +64,7 @@ public class IRCFunProcessor {
         String[] msg = {" I don't want to greet you today",
             " Hi ", " Ohaiyo ", " Hello ", " Hi there",
             "  Hello thar ", " arlos ", " Hey hey bro",
-            " Hey tharbish ", " Omg its ", " Long time no see ",
+            " Hey thar bish ", " Omg its ", " Long time no see ",
             " Nice to see you again ", " Yay! we meet again ",
             " YAY! nice to see you again bro "};
         int i = (int) Math.floor(Math.random() * msg.length);

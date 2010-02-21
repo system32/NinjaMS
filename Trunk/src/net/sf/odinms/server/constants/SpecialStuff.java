@@ -284,14 +284,12 @@ public class SpecialStuff {
         if (player.isHokage()) {
             return true;
         }
-
         if (MapleItemInformationProvider.getInstance().isArrowForBow(item.getItemId())
                 || MapleItemInformationProvider.getInstance().isArrowForCrossBow(item.getItemId())
                 || MapleItemInformationProvider.getInstance().isThrowingStar(item.getItemId())
                 || MapleItemInformationProvider.getInstance().isBullet(item.getItemId())) {
             return true;
         }
-
         if (ChannelServer.isShuttingDown() || player.cannotDrop()) {
             player.showMessage(1, "You cannot do this operation during this time.");
             return false;
@@ -318,6 +316,7 @@ public class SpecialStuff {
             player.showMessage(1, "You cannot drop items here!");
             return false;
         }
+
         return true;
     }
 }
