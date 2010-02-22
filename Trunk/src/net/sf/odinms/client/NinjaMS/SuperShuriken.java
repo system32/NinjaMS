@@ -19,6 +19,7 @@ public class SuperShuriken {
         69, 4031241, //- Swallow's Lost Seed ( Quest Item )
         1500, 4000150 // Ice Piece
     };
+
     static int[] capereq = {200, 4031309,// - Cloud Piece ( Quest Item )
         2000, 4000205,// Dirty Bandage
         1000, 4000228 //Anesthetic Powder
@@ -113,12 +114,14 @@ public class SuperShuriken {
             if (cat > 100) {
                 taocount *= 2;
             }
-            if (player.haveSight(taocount)) {
+            if (!player.hasAllStatMax()){
                 return 3;
-            } else if (!checkEtcItems(player, cat)) {
+            } else if (!player.haveSight(taocount)) {
                 return 4;
-            } else if (player.getBossPoints() < (taocount * 1000)) {
+            } else if (!checkEtcItems(player, cat)) {
                 return 5;
+            } else if (player.getBossPoints() < (taocount * 1000)) {
+                return 6;
             }
         }
         return 69;
