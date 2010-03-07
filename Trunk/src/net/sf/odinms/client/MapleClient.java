@@ -123,9 +123,8 @@ public class MapleClient {
         this.session.write(MaplePacketCreator.getCharList(this, server));
     }
 
-    public List<MapleCharacter> loadCharacters(int serverId) { // TODO make
-        // this less
-        // costly zZz
+    public List<MapleCharacter> loadCharacters(int serverId) { 
+        // TODO make this less costly zZz
         List<MapleCharacter> chars = new LinkedList<MapleCharacter>();
         for (CharNameAndId cni : loadCharactersInternal(serverId)) {
             try {
@@ -502,7 +501,7 @@ public class MapleClient {
         return this.accId;
     }
 
-    public void updateLoginState(int newstate) { // TODO hide?
+    public void updateLoginState(int newstate) { 
         Connection con = DatabaseConnection.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement("UPDATE accounts SET loggedin = ?, lastlogin = CURRENT_TIMESTAMP() WHERE id = ?");
@@ -525,7 +524,7 @@ public class MapleClient {
         }
     }
 
-    public int getLoginState() { // TODO hide?
+    public int getLoginState() { 
         Connection con = DatabaseConnection.getConnection();
         try {
             PreparedStatement ps;

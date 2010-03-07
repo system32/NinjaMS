@@ -305,12 +305,10 @@ public class MapleItemInformationProvider {
         if (item == null) {
             return -1;
         }
-
         //TODO ULTRAHACK - prevent players gaining miriads of mesars with orbis/eos scrolls
         if (itemId == 4001019 || itemId == 4001020) {
             return 0;
         }
-
         double pEntry = 0.0;
         MapleData pData = item.getChildByPath("info/unitPrice");
         if (pData != null) {
@@ -326,7 +324,6 @@ public class MapleItemInformationProvider {
             }
             pEntry = (double) MapleDataTool.getInt(pData);
         }
-
         priceCache.put(itemId, pEntry);
         return pEntry;
     }

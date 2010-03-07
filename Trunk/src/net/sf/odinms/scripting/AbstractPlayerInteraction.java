@@ -153,6 +153,7 @@ public class AbstractPlayerInteraction {
     public void gainStatItem(int id, short stat, short wa, short ma) {
         MapleInventoryManipulator.addStatItemById(c, id, c.getPlayer().getName(), stat, wa, ma);
         c.getSession().write(MaplePacketCreator.getShowItemGain(id, (short) 1, true));
+        dropMessage("You have gained a stat Item. Itemid : " + id + " Stats : " + stat + "WA : " + wa + " MA : " + ma);
     }
 
     public void changeMusic(String songName) {
@@ -468,5 +469,12 @@ public class AbstractPlayerInteraction {
         map.killAllMonsters(false);
         map.resetReactors();
         map.clearDrops();
+    }
+
+    public void dropMessage(String message){
+        dropMessage(6, message);
+    }
+     public void dropMessage(int type, String message){
+        getPlayer().dropMessage(type, message);
     }
 }

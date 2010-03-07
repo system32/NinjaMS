@@ -62,10 +62,8 @@ public class MagicDamageHandler extends AbstractDealDamageHandler {
         }
         MapleStatEffect effect = attack.getAttackEffect(c.getPlayer());
         int maxdamage;
-
         // TODO fix magic damage calculation
         maxdamage = 199999;
-
         ISkill skill = SkillFactory.getSkill(attack.skill);
         int skillLevel = c.getPlayer().getSkillLevel(skill);
         MapleStatEffect effect_ = skill.getEffect(skillLevel);
@@ -74,9 +72,7 @@ public class MagicDamageHandler extends AbstractDealDamageHandler {
             ScheduledFuture<?> timer = TimerManager.getInstance().schedule(new CancelCooldownAction(c.getPlayer(), attack.skill), effect_.getCooldown() * 1000);
             c.getPlayer().addCooldown(attack.skill, System.currentTimeMillis(), effect_.getCooldown() * 1000, timer);
         }
-
         applyAttack(attack, player, maxdamage, effect.getAttackCount());
-
         // MP Eater
         for (int i = 1; i <= 3; i++) {
             ISkill eaterSkill = SkillFactory.getSkill(2000000 + i * 100000);

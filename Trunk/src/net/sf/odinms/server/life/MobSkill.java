@@ -142,7 +142,7 @@ public class MobSkill {
                 disease = MapleDisease.STUN;
                 break;
             case 124: // Curse
-                // TODO
+
                 break;
             case 125:
                 disease = MapleDisease.POISON;

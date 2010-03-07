@@ -122,9 +122,10 @@ public class SuperShuriken {
                 return 5;
             } else if (player.getBossPoints() < (taocount * 1000)) {
                 return 6;
+            } else {
+                return 7;
             }
         }
-        return 69;
     }
 
     public static void removeItems(MapleCharacter player, int itemId) {

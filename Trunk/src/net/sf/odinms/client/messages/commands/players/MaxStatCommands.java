@@ -40,7 +40,7 @@ public class MaxStatCommands implements PlayerCommand {
                 mc.dropMessage("You need atleast " + ((msicount+1) * 100 )+ " Rebirths to get the next Shuriken Item.");
                 return;
             }
-            int goldscam = Math.min(((msicount + 1) * 500), 5000);
+            int goldscam = Math.min(((msicount + 1) * 300), 5000);
             if (!player.haveItem(Items.currencyType.Sight, goldscam)) {
                 mc.dropMessage("You are such a poor Fag! you need " + goldscam + " Tao Of Sight.");
                 return;

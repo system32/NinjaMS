@@ -4217,7 +4217,7 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements In
         updateSingleStat(MapleStat.HP, getHp());
         updateSingleStat(MapleStat.MP, getMp());
         if (thehp == 0) {
-            setStance(4); //TODO fix death bug, player doesnt spawn on other screen
+            setStance(4); 
             getMap().broadcastMessage(this, MaplePacketCreator.removePlayerFromMap(this.getObjectId()), false);
             getMap().broadcastMessage(this, MaplePacketCreator.spawnPlayerMapobject(this), false);
             if (getChalkboard() != null) {

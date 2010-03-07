@@ -78,9 +78,8 @@ public class DistributeAPHandler extends AbstractMaplePacketHandler {
 				case 8192: // mp
                                         c.showMessage("You cannot add Ap to HP or MP in NinjaMS. :)");
                                         return;
-				default: // TODO: implement hp and mp adding
-					c.getSession().write(
-						MaplePacketCreator.updatePlayerStats(MaplePacketCreator.EMPTY_STATUPDATE, true));
+				default: 
+					c.getSession().write(MaplePacketCreator.updatePlayerStats(MaplePacketCreator.EMPTY_STATUPDATE, true));
 					return;
 			}
 			c.getPlayer().setRemainingAp(c.getPlayer().getRemainingAp() - 1);

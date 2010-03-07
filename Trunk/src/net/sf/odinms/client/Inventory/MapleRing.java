@@ -56,32 +56,41 @@ public class MapleRing implements Comparable<MapleRing> {
             ps.close();
             return ret;
         } catch (SQLException ex) {
+            ex.printStackTrace();
             return null;
         }
     }
 
     public static int createRing(int itemid, final MapleCharacter partner1, final MapleCharacter partner2, String message) {
+
+        if (partner1 == null) {
+            System.err.println("Partner Number 1 is not on the same channel.");
+            return -2; //
+        } else if (partner2 == null) {
+            System.err.println("Partner Number 2 is not on the same channel.");
+            return -1; // Partner Number 2 is not on the same channel.
+        }
+        int[] ringID = new int[2];
+        Connection con = DatabaseConnection.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try {
-            if (partner1 == null) {                
-                System.err.println("Partner Number 1 is not on the same channel.");
-                return -2; //
-            } else if (partner2 == null) {
-                System.err.println("Partner Number 2 is not on the same channel.");
-                return -1; // Partner Number 2 is not on the same channel.
-            }
-            int[] ringID = new int[2];
-            Connection con = DatabaseConnection.getConnection();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO rings (itemid, partnerChrId, partnername) VALUES (?, ?, ?)");
+            ps = con.prepareStatement("INSERT INTO rings (itemid, partnerChrId, partnername) VALUES (?, ?, ?)");
             ps.setInt(1, itemid);
             ps.setInt(2, partner2.getId());
             ps.setString(3, partner2.getName());
             ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
+            rs = ps.getGeneratedKeys();
             rs.next();
             ringID[0] = rs.getInt(1);
             rs.close();
             ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
 
+        try {
             ps = con.prepareStatement("INSERT INTO rings (itemid, partnerRingId, partnerChrId, partnername) VALUES (?, ?, ?, ?)");
             ps.setInt(1, itemid);
             ps.setInt(2, ringID[0]);
@@ -93,25 +102,28 @@ public class MapleRing implements Comparable<MapleRing> {
             ringID[1] = rs.getInt(1);
             rs.close();
             ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
 
+        try {
             ps = con.prepareStatement("UPDATE rings SET partnerRingId = ? WHERE id = ?");
             ps.setInt(1, ringID[1]);
             ps.setInt(2, ringID[0]);
             ps.executeUpdate();
             ps.close();
-
-            MapleInventoryManipulator.addRing(partner1, itemid, ringID[0]);
-            MapleInventoryManipulator.addRing(partner2, itemid, ringID[1]);
-
-            partner1.addRingToCache(ringID[0]);
-            partner2.addRingToCache(ringID[1]);
-            partner2.relog();
-            partner1.relog();
-            return 1;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
             return 0;
         }
+        MapleInventoryManipulator.addRing(partner1, itemid, ringID[0]);
+        MapleInventoryManipulator.addRing(partner2, itemid, ringID[1]);
+        partner1.addRingToCache(ringID[0]);
+        partner2.addRingToCache(ringID[1]);
+        partner2.relog();
+        partner1.relog();
+        return 1;
     }
 
     public int getRingId() {

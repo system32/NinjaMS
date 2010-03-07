@@ -467,7 +467,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
                     do {
                         getPlayer().addNinjaTensu();
                         c.showMessage(5, "You have gained 1 NinjaTensuu");
-                    }while (rs.next());
+                    } while (rs.next());
                     PreparedStatement pse = con.prepareStatement("DELETE FROM voterewards WHERE name = ?");
                     pse.setString(1, c.getAccountName());
                     pse.executeUpdate();
@@ -595,7 +595,7 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         return checkSpace(itemid, 1);
     }
 
-   public void disbandAlliance(MapleClient c, int allianceId) {
+    public void disbandAlliance(MapleClient c, int allianceId) {
         PreparedStatement ps = null;
         try {
             ps = DatabaseConnection.getConnection().prepareStatement("DELETE FROM `alliance` WHERE id = ?");
@@ -676,7 +676,6 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         }
         return alliance;
     }
-   
 
     public void sendServerNotice(int type, String message) {
         for (ChannelServer vvvv : ChannelServer.getAllInstances()) {
@@ -766,24 +765,114 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         return array;
     }
 
+    public int getItemType(int itemId) {
+        int cat = 0;
+        if (itemId >= 1010000 && itemId < 1040000) {
+            cat = 1; //"Accessory";
+        } else if (itemId >= 1000000 && itemId < 1010000) {
+            cat = 2; // "Cap";
+        } else if (itemId >= 1102000 && itemId < 1103000) {
+            cat = 3; // "Cape";
+        } else if (itemId >= 1040000 && itemId < 1050000) {
+            cat = 4; //"Coat";
+        } else if (itemId >= 1080000 && itemId < 1090000) {
+            cat = 5;// "Glove";
+        } else if (itemId >= 1050000 && itemId < 1060000) {
+            cat = 6; //"Longcoat";
+        } else if (itemId >= 1060000 && itemId < 1070000) {
+            cat = 7; //"Pants";
+        } else if (itemId >= 1802000 && itemId < 1810000) {
+            cat = 8; //"PetEquip";
+        } else if (itemId >= 1070000 && itemId < 1080000) {
+            cat = 9; //"Shoes";
+        } else if (itemId >= 1900000 && itemId < 2000000) {
+            cat = 10; //"Taming";
+        }
+        return cat;
 
-    public int getItemType(int itemid){
-        return SuperShuriken.getItemType(itemid);
     }
 
-    public String getReqItems(int itemid){
-        return SuperShuriken.getReQItems(getPlayer(), itemid);
+    public boolean isBlockedItem(int itemid) {
+        int[] blockedItems = {1812006,// Magic scales
+            1002140, // - Wizet Invincible Hat
+            1042003,// - Wizet Plain Suit
+            1062007,// - Wizet Plain Suit Pants
+            1322013,// - Wizet Secret Agent Suitcase
+            1002959 //- Junior GM Cap
+        };
+        for (int i = 0; i < blockedItems.length; i++) {
+            if (blockedItems[1] == itemid) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public boolean checkEtcItems(int itemid){
-        return SuperShuriken.checkEtcItems(getPlayer(), itemid);
+    public boolean isCashItem(int itemId) {
+        if (MapleItemInformationProvider.getInstance().isCashEquip(itemId)) {
+            return true;
+        }
+        return false;
     }
 
-    public int checkRequirements(int itemid){
-        return SuperShuriken.checkRequirements(getPlayer(), itemid);
+    public boolean checkShurikenEtcitems() {
+        int msicount = getPlayer().getMaxStatItems();
+        switch (msicount) {
+            case 0:
+                return true;
+            case 1:
+            case 2:
+                return (getPlayer().haveItem(4000020, 500)) && getPlayer().haveItem(4000069, 750); // Wild Boar Tooth and Zombie tooth
+            case 3:
+            case 4:
+                return (getPlayer().haveItem(4000002, 750)) && getPlayer().haveItem(4000168, 1500); // Pig's Ribbon and sun flower Seed
+            case 5:
+            case 6:
+                return (getPlayer().haveItem(4000001, 1000)) && getPlayer().haveItem(4000078, 1500); // orange mushy cap and jr cerebres tooth
+            case 7:
+                return (getPlayer().haveItem(4000051, 1500)) && getPlayer().haveItem(4000184, 2500); // Hector Tails and Butter Toasted Squid
+            case 8:
+                return (getPlayer().haveItem(4000040, 50)) && getPlayer().haveItem(4000176, 50)
+                        && getPlayer().haveItem(4000074, 2500) && getPlayer().haveItem(4000014, 3000); // mushroom spore, poisonous mushroom,
+            // lucida tail & drake skull.
+            default:
+                return false;
+        }
     }
 
-    public void removeItems(int itemid){
-        SuperShuriken.removeItems(getPlayer(), itemid);
+     public void removeShurikenEtcItems() {
+         int x = getPlayer().getMaxStatItems();
+         MapleCharacter player = getPlayer();
+         switch(x){
+            case 0:
+                break;
+            case 1:
+            case 2:
+                player.gainItem(4000020, -500);
+                player.gainItem(4000069, -750); // Wild Boar Tooth and Zombie tooth
+                break;
+            case 3:
+            case 4:
+                player.gainItem(4000002, -750);
+                player.gainItem(4000168, -1500); // Pig's Ribbon and sun flower Seed
+                break;
+            case 5:
+            case 6:
+                player.gainItem(4000001, -1000);
+                player.gainItem(4000078, -1500); // orange mushy cap and jr cerebres tooth
+                break;
+            case 7:
+                player.gainItem(4000051, -1500);
+                player.gainItem(4000184, -2500); // Hector Tails and Butter Toasted Squid
+                break;
+            case 8:
+                player.gainItem(4000040, -50);// mushroom spore
+                player.gainItem(4000176, -50);// poisonous mushroom,
+                player.gainItem(4000074, -2500);// lucida tail
+                player.gainItem(4000014, -3000); //drake skull.
+                break;
+            default:
+                break;
+        }
     }
 }
