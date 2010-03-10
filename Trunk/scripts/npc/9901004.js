@@ -87,7 +87,7 @@ function action(mode, type, selection) {
 				beauty = 5;
 				var current = cm.getChar().getFace() % 100 + 20000;
 				colors = Array();
-				colors = Array(current , current + 100, current + 200, current + 300, current +400, current + 500, current + 600, current + 700);
+				colors = Array(current , current + 100, current + 200, current + 300, current +400, current + 500, current + 600, current + 700, current + 800);
 				cm.sendStyle("Pick one?", colors);
 			}
 		}

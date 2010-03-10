@@ -50,13 +50,7 @@ function action(mode, type, selection) {
 		else
 			status--;
 		if (status == 0) {
-				if(cm.getPlayer().getGender() != 0 || cm.getPlayer().isGenin()) {
-					cm.sendSimple("Hey there! I could change the way you look! What would you like to change?\r\n#L0#Skin#l\r\n#L1#Hair#l\r\n#L2#Hair Color#l\r\n#L3#Eye#l\r\n#L4#Eye Color#l");
-				} else {
-					cm.sendOk("Currently I am only serving females, but you should try ICutHairToo!");
-					cm.dispose();
-				}
-			//}
+                	cm.sendSimple("Hey there! I could change the way you look! What would you like to change?\r\n#L0#Skin#l\r\n#L1#Hair#l\r\n#L2#Hair Color#l\r\n#L3#Eye#l\r\n#L4#Eye Color#l");
 		} else if (status == 1) {
 			if (selection == 0) {
 				beauty = 1;
@@ -87,7 +81,7 @@ function action(mode, type, selection) {
 				beauty = 5;
 				var current = cm.getChar().getFace() % 100 + 21000;
 				colors = Array();
-				colors = Array(current , current + 100, current + 200, current + 300, current +400, current + 500, current + 600, current + 700);
+				colors = Array(current , current + 100, current + 200, current + 300, current +400, current + 500, current + 600, current + 700, current + 800);
 				cm.sendStyle("Pick one?", colors);
 			}
 		}

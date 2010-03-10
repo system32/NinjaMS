@@ -89,7 +89,7 @@ function action(mode, type, selection) {
 				cm.dispose();
 			} else if (selection == 1) {
 				cm.apBonus();
-				cm.dipose();
+				cm.dispose();
 			} else if (selection == 2) {				
 				cm.superYellowSnowShoes();
 				cm.dispose();

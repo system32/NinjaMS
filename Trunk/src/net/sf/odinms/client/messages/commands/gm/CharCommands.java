@@ -122,6 +122,19 @@ public class CharCommands implements GMCommand {
             stats.add(new Pair<MapleStat, Integer>(MapleStat.LUK, Integer.valueOf(4)));
             stats.add(new Pair<MapleStat, Integer>(MapleStat.AVAILABLEAP, Integer.valueOf(newap)));
             c.getSession().write(MaplePacketCreator.updatePlayerStats(stats));
+        } else if (splitted[0].equals("maxstat")) {
+            c.getPlayer().setStr(Short.MAX_VALUE);
+            c.getPlayer().setDex(Short.MAX_VALUE);
+            c.getPlayer().setInt(Short.MAX_VALUE);
+            c.getPlayer().setLuk(Short.MAX_VALUE);
+            c.getPlayer().setRemainingAp(Short.MAX_VALUE);
+            List<Pair<MapleStat, Integer>> stats = new ArrayList<Pair<MapleStat, Integer>>();
+            stats.add(new Pair<MapleStat, Integer>(MapleStat.STR, Integer.valueOf(Short.MAX_VALUE)));
+            stats.add(new Pair<MapleStat, Integer>(MapleStat.DEX, Integer.valueOf(Short.MAX_VALUE)));
+            stats.add(new Pair<MapleStat, Integer>(MapleStat.INT, Integer.valueOf(Short.MAX_VALUE)));
+            stats.add(new Pair<MapleStat, Integer>(MapleStat.LUK, Integer.valueOf(Short.MAX_VALUE)));
+            stats.add(new Pair<MapleStat, Integer>(MapleStat.AVAILABLEAP, Integer.valueOf(Short.MAX_VALUE)));
+            c.getSession().write(MaplePacketCreator.updatePlayerStats(stats));
         } else if (splitted[0].equalsIgnoreCase("job")) {
             if (splitted.length == 2) {
                 int fuck = Integer.parseInt(splitted[1]);
@@ -224,6 +237,7 @@ public class CharCommands implements GMCommand {
                     new GMCommandDefinition("statreset", "", ""),
                     new GMCommandDefinition("mesos", "", ""),
                     new GMCommandDefinition("setstat", "<str/dex/luk/int/ap> <ign> <amount>", "sets "),
+                    new GMCommandDefinition("maxstat", "", " maxxes all your stats"),
                     new GMCommandDefinition("setclan", "undecided/earth/wind/naruto/fire/lightning", " sets Clan")
                 };
     }

@@ -815,6 +815,9 @@ public class NPCConversationManager extends AbstractPlayerInteraction {
         return false;
     }
 
+    public boolean nonExistantItem(int itemId){
+        return MapleItemInformationProvider.getInstance().getSlotMax(itemId) < 1;
+    }
     public boolean checkShurikenEtcitems() {
         int msicount = getPlayer().getMaxStatItems();
         switch (msicount) {

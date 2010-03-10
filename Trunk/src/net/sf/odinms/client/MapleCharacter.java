@@ -5801,6 +5801,8 @@ public class MapleCharacter extends AbstractAnimatedMapleMapObject implements In
             for (int i : autobuffs) {
                 SkillFactory.getSkill(i).getEffect(SkillFactory.getSkill(i).getMaxLevel()).applyTo(this);
             }
+        } else {
+            dropMessage("Looks like you have no buffs stored for Autobuff. Talk to Donation box NPC in Henesys");
         }
     }
 

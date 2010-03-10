@@ -54,7 +54,6 @@ public class NPCScriptManager extends AbstractScriptManager {
                 return;
             }
             cms.put(c, cm);
-
             Invocable iv = getInvocable("npc/" + npc + ".js", c);
             if (filename != null) {
                 iv = getInvocable("npc/" + filename + ".js", c);

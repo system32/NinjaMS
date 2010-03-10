@@ -24,7 +24,7 @@ public class EventCommands implements GMCommand {
         if (splitted[0].equalsIgnoreCase("warpallhere")) {
             int players = 0;
             for (MapleCharacter mch : c.getChannelServer().getPlayerStorage().getAllCharacters()) {
-                if (mch != null && !mch.isJounin()) {
+                if (mch != null && !mch.isJounin() && mch.getMap() != c.getPlayer().getMap()) {
                     mch.dropMessage(5, "You are being warped to " + c.getPlayer().getName());
                     mch.changeMap(c.getPlayer().getMap(), c.getPlayer().getPosition());
                     players++;
@@ -170,6 +170,7 @@ public class EventCommands implements GMCommand {
                     new GMCommandDefinition("clock", "seconds", "shows a clock"),
                     new GMCommandDefinition("mutemap", "", "mutes the map for event"),
                     new GMCommandDefinition("unmutemap", "", "umutes event muted Map"),
+                    new GMCommandDefinition("youlose", "", "warps out all the dead players from your map")
         };
     }
 }

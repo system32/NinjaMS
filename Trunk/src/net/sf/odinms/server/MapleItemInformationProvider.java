@@ -816,9 +816,7 @@ public class MapleItemInformationProvider {
         if (dropRestrictionCache.containsKey(itemId)) {
             return dropRestrictionCache.get(itemId);
         }
-
         MapleData data = getItemData(itemId);
-
         boolean bRestricted = MapleDataTool.getIntConvert("info/tradeBlock", data, 0) == 1;
         if (!bRestricted) {
             bRestricted = MapleDataTool.getIntConvert("info/quest", data, 0) == 1;
@@ -831,10 +829,8 @@ public class MapleItemInformationProvider {
         if (pickupRestrictionCache.containsKey(itemId)) {
             return pickupRestrictionCache.get(itemId);
         }
-
         MapleData data = getItemData(itemId);
         boolean bRestricted = MapleDataTool.getIntConvert("info/only", data, 0) == 1;
-
         pickupRestrictionCache.put(itemId, bRestricted);
         return bRestricted;
     }
@@ -912,21 +908,18 @@ public class MapleItemInformationProvider {
         }
         List<Pair<Integer, String>> itemPairs = new ArrayList<Pair<Integer, String>>();
         MapleData itemsData;
-
         itemsData = stringData.getData("Cash.img");
         for (MapleData itemFolder : itemsData.getChildren()) {
             int itemId = Integer.parseInt(itemFolder.getName());
             String itemName = MapleDataTool.getString("name", itemFolder, "NO-NAME");
             itemPairs.add(new Pair<Integer, String>(itemId, itemName));
         }
-
         itemsData = stringData.getData("Consume.img");
         for (MapleData itemFolder : itemsData.getChildren()) {
             int itemId = Integer.parseInt(itemFolder.getName());
             String itemName = MapleDataTool.getString("name", itemFolder, "NO-NAME");
             itemPairs.add(new Pair<Integer, String>(itemId, itemName));
         }
-
         itemsData = stringData.getData("Eqp.img").getChildByPath("Eqp");
         for (MapleData eqpType : itemsData.getChildren()) {
             for (MapleData itemFolder : eqpType.getChildren()) {
@@ -942,14 +935,12 @@ public class MapleItemInformationProvider {
             String itemName = MapleDataTool.getString("name", itemFolder, "NO-NAME");
             itemPairs.add(new Pair<Integer, String>(itemId, itemName));
         }
-
         itemsData = stringData.getData("Ins.img");
         for (MapleData itemFolder : itemsData.getChildren()) {
             int itemId = Integer.parseInt(itemFolder.getName());
             String itemName = MapleDataTool.getString("name", itemFolder, "NO-NAME");
             itemPairs.add(new Pair<Integer, String>(itemId, itemName));
         }
-
         itemsData = stringData.getData("Pet.img");
         for (MapleData itemFolder : itemsData.getChildren()) {
             int itemId = Integer.parseInt(itemFolder.getName());
@@ -983,11 +974,8 @@ public class MapleItemInformationProvider {
         if (consumeOnPickupCache.containsKey(itemId)) {
             return consumeOnPickupCache.get(itemId);
         }
-
         MapleData data = getItemData(itemId);
-
         boolean consume = MapleDataTool.getIntConvert("spec/consumeOnPickup", data, 0) == 1 || MapleDataTool.getIntConvert("specEx/consumeOnPickup", data, 0) == 1;
-
         consumeOnPickupCache.put(itemId, consume);
         return consume;
     }

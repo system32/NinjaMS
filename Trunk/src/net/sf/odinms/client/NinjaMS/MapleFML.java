@@ -27,8 +27,7 @@ public class MapleFML {
             	}
             }
             String sendTxt = fmls.get((int)(Math.random()*fmls.size()));
-            fmlmsg = "[FML] Today, " + sendTxt + "FML";
-            System.out.println(fmlmsg);
+            fmlmsg = "[FML] Today, " + sendTxt + "FML";            
             con.disconnect();
         } catch (Exception e) {
             System.err.println("[FML Bot] There has been an error displaying the FML.");

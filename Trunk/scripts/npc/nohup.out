@@ -1,0 +1,172 @@
+Mar 9, 2010 11:33:50 AM net.sf.odinms.scripting.npc.NPCScriptManager action
+SEVERE: Error executing NPC script.
+java.lang.reflect.UndeclaredThrowableException
+	at $Proxy3.action(Unknown Source)
+	at net.sf.odinms.scripting.npc.NPCScriptManager.action(NPCScriptManager.java:93)
+	at net.sf.odinms.net.channel.handler.NPCMoreTalkHandler.handlePacket(NPCMoreTalkHandler.java:50)
+	at net.sf.odinms.net.MapleServerHandler.messageReceived(MapleServerHandler.java:147)
+	at org.apache.mina.common.support.AbstractIoFilterChain$TailFilter.messageReceived(AbstractIoFilterChain.java:570)
+	at org.apache.mina.common.support.AbstractIoFilterChain.callNextMessageReceived(AbstractIoFilterChain.java:299)
+	at org.apache.mina.common.support.AbstractIoFilterChain.access$1100(AbstractIoFilterChain.java:53)
+	at org.apache.mina.common.support.AbstractIoFilterChain$EntryImpl$1.messageReceived(AbstractIoFilterChain.java:648)
+	at org.apache.mina.filter.codec.support.SimpleProtocolDecoderOutput.flush(SimpleProtocolDecoderOutput.java:58)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:180)
+	at org.apache.mina.common.support.AbstractIoFilterChain.callNextMessageReceived(AbstractIoFilterChain.java:299)
+	at org.apache.mina.common.support.AbstractIoFilterChain.access$1100(AbstractIoFilterChain.java:53)
+	at org.apache.mina.common.support.AbstractIoFilterChain$EntryImpl$1.messageReceived(AbstractIoFilterChain.java:648)
+	at org.apache.mina.filter.executor.ExecutorFilter.processEvent(ExecutorFilter.java:220)
+	at org.apache.mina.filter.executor.ExecutorFilter$ProcessEventsRunnable.run(ExecutorFilter.java:264)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:51)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.security.PrivilegedActionException: javax.script.ScriptException: sun.org.mozilla.javascript.internal.EcmaError: TypeError: Cannot find function getReqItems. (<Unknown source>#203) in <Unknown source> at line number 203
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.script.util.InterfaceImplementor$InterfaceImplementorInvocationHandler.invoke(InterfaceImplementor.java:49)
+	... 19 more
+Caused by: javax.script.ScriptException: sun.org.mozilla.javascript.internal.EcmaError: TypeError: Cannot find function getReqItems. (<Unknown source>#203) in <Unknown source> at line number 203
+	at com.sun.script.javascript.RhinoScriptEngine.invoke(RhinoScriptEngine.java:184)
+	at com.sun.script.javascript.RhinoScriptEngine.invokeFunction(RhinoScriptEngine.java:142)
+	at com.sun.script.util.InterfaceImplementor$InterfaceImplementorInvocationHandler$1.run(InterfaceImplementor.java:52)
+	... 21 more
+Mar 9, 2010 11:34:37 AM net.sf.odinms.net.login.handler.CharlistRequestHandler handlePacket
+INFO: Client is connecting to server 0 channel 6
+[FML] Today, I moved into my aunt's house. She had a little too much fun in the sixties and now tells everyone about her many imagined conquests, including her church minister and several has-been celebrities. As a plus, I discovered she has a habit of wandering around the house in the nude. FML
+[FML] Today, I started my spring break.  My college is letting the students stay in the dorms for break, so I figured that staying here would mean getting more sleep than going home.  Not so much.  The fire alarm has been going off every 20 mins since 7:30am because they're "fixing" it.  FML
+[FML] Today, my mother in law grounded me because I went to the store in the "dangerous" rain. My husband says that if I don't obey then we won't work out. FML
+[FML] Today, at work, I had toast thrown at me by an old Vietnam vet. Who also happens to have a dead cat in his freezer. I love retirement homes. FML
+[FML] Today, I found out my husband of 10 years has a online blog. Excited to read about myself, I began skimming, only to find out that every entry is him explaining how he let his "soulmate" walk away 9 years ago because of his "previous commitment" and how he regrets it every day. FML
+[FML] Today, I thought my boyfriend was being sweet by stroking my hair, only to discover he was getting rid of a booger. FML
+[FML] Today, I started my spring break.  My college is letting the students stay in the dorms for break, so I figured that staying here would mean getting more sleep than going home.  Not so much.  The fire alarm has been going off every 20 mins since 7:30am because they're "fixing" it.  FML
+[FML] Today, I have a rash all over my face because yesterday my boyfriend broke up with me. Apparently, I am allergic to the something in the tissues with which I was blowing my nose and wiping away my tears. FML
+[FML] Today, I learned that you don't put your diamond earrings on over your bathroom sink. FML
+[FML] Today, I went on a date with a guy that I met at a masquerade. The moment he saw me without my mask on, he left the date. FML
+Mar 9, 2010 11:35:23 AM net.sf.odinms.net.channel.OliveroMatic.AutomagicShit broadcastFMLMessage
+INFO: Anonymous Bot Message broadcasted.
+Mar 9, 2010 11:35:43 AM net.sf.odinms.scripting.npc.NPCScriptManager action
+SEVERE: Error executing NPC script.
+java.lang.reflect.UndeclaredThrowableException
+	at $Proxy3.action(Unknown Source)
+	at net.sf.odinms.scripting.npc.NPCScriptManager.action(NPCScriptManager.java:93)
+	at net.sf.odinms.net.channel.handler.NPCMoreTalkHandler.handlePacket(NPCMoreTalkHandler.java:50)
+	at net.sf.odinms.net.MapleServerHandler.messageReceived(MapleServerHandler.java:147)
+	at org.apache.mina.common.support.AbstractIoFilterChain$TailFilter.messageReceived(AbstractIoFilterChain.java:570)
+	at org.apache.mina.common.support.AbstractIoFilterChain.callNextMessageReceived(AbstractIoFilterChain.java:299)
+	at org.apache.mina.common.support.AbstractIoFilterChain.access$1100(AbstractIoFilterChain.java:53)
+	at org.apache.mina.common.support.AbstractIoFilterChain$EntryImpl$1.messageReceived(AbstractIoFilterChain.java:648)
+	at org.apache.mina.filter.codec.support.SimpleProtocolDecoderOutput.flush(SimpleProtocolDecoderOutput.java:58)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:180)
+	at org.apache.mina.common.support.AbstractIoFilterChain.callNextMessageReceived(AbstractIoFilterChain.java:299)
+	at org.apache.mina.common.support.AbstractIoFilterChain.access$1100(AbstractIoFilterChain.java:53)
+	at org.apache.mina.common.support.AbstractIoFilterChain$EntryImpl$1.messageReceived(AbstractIoFilterChain.java:648)
+	at org.apache.mina.filter.executor.ExecutorFilter.processEvent(ExecutorFilter.java:220)
+	at org.apache.mina.filter.executor.ExecutorFilter$ProcessEventsRunnable.run(ExecutorFilter.java:264)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:51)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.security.PrivilegedActionException: javax.script.ScriptException: sun.org.mozilla.javascript.internal.EvaluatorException: Cannot convert NaN to java.lang.Integer (<Unknown source>#193) in <Unknown source> at line number 193
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.script.util.InterfaceImplementor$InterfaceImplementorInvocationHandler.invoke(InterfaceImplementor.java:49)
+	... 19 more
+Caused by: javax.script.ScriptException: sun.org.mozilla.javascript.internal.EvaluatorException: Cannot convert NaN to java.lang.Integer (<Unknown source>#193) in <Unknown source> at line number 193
+	at com.sun.script.javascript.RhinoScriptEngine.invoke(RhinoScriptEngine.java:184)
+	at com.sun.script.javascript.RhinoScriptEngine.invokeFunction(RhinoScriptEngine.java:142)
+	at com.sun.script.util.InterfaceImplementor$InterfaceImplementorInvocationHandler$1.run(InterfaceImplementor.java:52)
+	... 21 more
+Mar 9, 2010 11:36:13 AM net.sf.odinms.net.channel.handler.AbstractMovementPacketHandler parseMovement
+WARNING: numCommands (-85) does not match the number of deserialized movement commands (0)
+Mar 9, 2010 11:36:13 AM net.sf.odinms.net.channel.handler.AbstractMovementPacketHandler parseMovement
+WARNING: numCommands (-84) does not match the number of deserialized movement commands (0)
+Mar 9, 2010 11:36:13 AM net.sf.odinms.net.channel.handler.AbstractMovementPacketHandler parseMovement
+WARNING: numCommands (-93) does not match the number of deserialized movement commands (0)
+Mar 9, 2010 11:36:20 AM net.sf.odinms.net.channel.handler.AbstractMovementPacketHandler parseMovement
+WARNING: numCommands (-95) does not match the number of deserialized movement commands (0)
+Mar 9, 2010 11:36:37 AM net.sf.odinms.net.channel.ChannelServer$autoSave run
+INFO: Saving characters to database for channel 3
+Mar 9, 2010 11:36:40 AM net.sf.odinms.net.login.handler.CharlistRequestHandler handlePacket
+INFO: Client is connecting to server 0 channel 3
+Mar 9, 2010 11:37:34 AM net.sf.odinms.scripting.npc.NPCScriptManager action
+SEVERE: Error executing NPC script.
+java.lang.reflect.UndeclaredThrowableException
+	at $Proxy3.action(Unknown Source)
+	at net.sf.odinms.scripting.npc.NPCScriptManager.action(NPCScriptManager.java:93)
+	at net.sf.odinms.net.channel.handler.NPCMoreTalkHandler.handlePacket(NPCMoreTalkHandler.java:50)
+	at net.sf.odinms.net.MapleServerHandler.messageReceived(MapleServerHandler.java:147)
+	at org.apache.mina.common.support.AbstractIoFilterChain$TailFilter.messageReceived(AbstractIoFilterChain.java:570)
+	at org.apache.mina.common.support.AbstractIoFilterChain.callNextMessageReceived(AbstractIoFilterChain.java:299)
+	at org.apache.mina.common.support.AbstractIoFilterChain.access$1100(AbstractIoFilterChain.java:53)
+	at org.apache.mina.common.support.AbstractIoFilterChain$EntryImpl$1.messageReceived(AbstractIoFilterChain.java:648)
+	at org.apache.mina.filter.codec.support.SimpleProtocolDecoderOutput.flush(SimpleProtocolDecoderOutput.java:58)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:180)
+	at org.apache.mina.common.support.AbstractIoFilterChain.callNextMessageReceived(AbstractIoFilterChain.java:299)
+	at org.apache.mina.common.support.AbstractIoFilterChain.access$1100(AbstractIoFilterChain.java:53)
+	at org.apache.mina.common.support.AbstractIoFilterChain$EntryImpl$1.messageReceived(AbstractIoFilterChain.java:648)
+	at org.apache.mina.filter.executor.ExecutorFilter.processEvent(ExecutorFilter.java:220)
+	at org.apache.mina.filter.executor.ExecutorFilter$ProcessEventsRunnable.run(ExecutorFilter.java:264)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:51)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.security.PrivilegedActionException: javax.script.ScriptException: sun.org.mozilla.javascript.internal.EcmaError: TypeError: Cannot find function getReqItems. (<Unknown source>#203) in <Unknown source> at line number 203
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.script.util.InterfaceImplementor$InterfaceImplementorInvocationHandler.invoke(InterfaceImplementor.java:49)
+	... 19 more
+Caused by: javax.script.ScriptException: sun.org.mozilla.javascript.internal.EcmaError: TypeError: Cannot find function getReqItems. (<Unknown source>#203) in <Unknown source> at line number 203
+	at com.sun.script.javascript.RhinoScriptEngine.invoke(RhinoScriptEngine.java:184)
+	at com.sun.script.javascript.RhinoScriptEngine.invokeFunction(RhinoScriptEngine.java:142)
+	at com.sun.script.util.InterfaceImplementor$InterfaceImplementorInvocationHandler$1.run(InterfaceImplementor.java:52)
+	... 21 more
+Mar 9, 2010 11:37:51 AM net.sf.odinms.scripting.npc.NPCScriptManager action
+SEVERE: Error executing NPC script.
+java.lang.reflect.UndeclaredThrowableException
+	at $Proxy3.action(Unknown Source)
+	at net.sf.odinms.scripting.npc.NPCScriptManager.action(NPCScriptManager.java:93)
+	at net.sf.odinms.net.channel.handler.NPCMoreTalkHandler.handlePacket(NPCMoreTalkHandler.java:50)
+	at net.sf.odinms.net.MapleServerHandler.messageReceived(MapleServerHandler.java:147)
+	at org.apache.mina.common.support.AbstractIoFilterChain$TailFilter.messageReceived(AbstractIoFilterChain.java:570)
+	at org.apache.mina.common.support.AbstractIoFilterChain.callNextMessageReceived(AbstractIoFilterChain.java:299)
+	at org.apache.mina.common.support.AbstractIoFilterChain.access$1100(AbstractIoFilterChain.java:53)
+	at org.apache.mina.common.support.AbstractIoFilterChain$EntryImpl$1.messageReceived(AbstractIoFilterChain.java:648)
+	at org.apache.mina.filter.codec.support.SimpleProtocolDecoderOutput.flush(SimpleProtocolDecoderOutput.java:58)
+	at org.apache.mina.filter.codec.ProtocolCodecFilter.messageReceived(ProtocolCodecFilter.java:180)
+	at org.apache.mina.common.support.AbstractIoFilterChain.callNextMessageReceived(AbstractIoFilterChain.java:299)
+	at org.apache.mina.common.support.AbstractIoFilterChain.access$1100(AbstractIoFilterChain.java:53)
+	at org.apache.mina.common.support.AbstractIoFilterChain$EntryImpl$1.messageReceived(AbstractIoFilterChain.java:648)
+	at org.apache.mina.filter.executor.ExecutorFilter.processEvent(ExecutorFilter.java:220)
+	at org.apache.mina.filter.executor.ExecutorFilter$ProcessEventsRunnable.run(ExecutorFilter.java:264)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:51)
+	at java.lang.Thread.run(Thread.java:619)
+Caused by: java.security.PrivilegedActionException: javax.script.ScriptException: sun.org.mozilla.javascript.internal.EcmaError: ReferenceError: "player" is not defined. (<Unknown source>#195) in <Unknown source> at line number 195
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.script.util.InterfaceImplementor$InterfaceImplementorInvocationHandler.invoke(InterfaceImplementor.java:49)
+	... 19 more
+Caused by: javax.script.ScriptException: sun.org.mozilla.javascript.internal.EcmaError: ReferenceError: "player" is not defined. (<Unknown source>#195) in <Unknown source> at line number 195
+	at com.sun.script.javascript.RhinoScriptEngine.invoke(RhinoScriptEngine.java:184)
+	at com.sun.script.javascript.RhinoScriptEngine.invokeFunction(RhinoScriptEngine.java:142)
+	at com.sun.script.util.InterfaceImplementor$InterfaceImplementorInvocationHandler$1.run(InterfaceImplementor.java:52)
+	... 21 more
+[FML] Today, at work, I had toast thrown at me by an old Vietnam vet. Who also happens to have a dead cat in his freezer. I love retirement homes. FML
+[FML] Today, I found out my husband of 10 years has a online blog. Excited to read about myself, I began skimming, only to find out that every entry is him explaining how he let his "soulmate" walk away 9 years ago because of his "previous commitment" and how he regrets it every day. FML
+[FML] Today, I woke up with one of the worst migraines I've had in months. My mother (who thinks I'm a hypochondriac) began to scream at me about "making up an illness". When I asked for my meds, she called me an addict and dumped my $300 prescription down the sink. FML
+[FML] Today, I found out my husband of 10 years has a online blog. Excited to read about myself, I began skimming, only to find out that every entry is him explaining how he let his "soulmate" walk away 9 years ago because of his "previous commitment" and how he regrets it every day. FML
+[FML] Today, I was supposed to talk to my girlfriend's mom to ask permission to date her daughter but I chickened out. We've been together for almost a year, but have not been on a real date because I am too damn scared of her family. FML
+[FML] Today, at the eye doctor, they asked for my birth date for the files. My dad answered quickly, "May 28, 1994." It was embarrassing to have to correct him with "April 19, 1993." Who's May 28? Way to go dad. FML
+[FML] Today, my looks alone made a girl cry. FML
+[FML] Today, I went to a party and crashed on the bedroom floor. I woke up to sex noises coming from the bed. I pretended to still be asleep. I sent a text to my boyfriend to tell him about it. I heard his phone beep from over in the bed. FML
+[FML] Today, I found out my ex-boyfriend is getting engaged. He broke up with me five months ago because our relationship was too serious for him. FML
+[FML] Today, I was invited by my boyfriend's parents for dinner at their house. The dinner went well I thought, until I was getting ready to leave. Before I could make it out the front door, I could hear them discussing their disappointment that their son would ever consider someone like me. FML
+Mar 9, 2010 11:38:23 AM net.sf.odinms.net.channel.OliveroMatic.AutomagicShit broadcastFMLMessage
+INFO: Anonymous Bot Message broadcasted.
+Mar 9, 2010 11:38:43 AM net.sf.odinms.net.channel.handler.GuildOperationHandler handlePacket
+INFO: Unhandled GUILD_OPERATION packet: 
+All: 7C 00 00
+Now: 
+Mar 9, 2010 11:39:59 AM net.sf.odinms.net.channel.handler.GuildOperationHandler handlePacket
+INFO: Unhandled GUILD_OPERATION packet: 
+All: 7C 00 00
+Now: 
+Mar 9, 2010 11:40:04 AM net.sf.odinms.net.channel.handler.AbstractMovementPacketHandler parseMovement
+WARNING: numCommands (-96) does not match the number of deserialized movement commands (0)
